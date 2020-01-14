@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './MainPage.css';
 class MainPage extends Component {
   render() {
     const { allMovies, searchTerm, message, onSubmit, onChange, onFilmClick } = this.props;
@@ -7,8 +7,8 @@ class MainPage extends Component {
       <div>
         {allMovies.map(movie => {
           return (
-            <button key={movie.id} onClick={() => onFilmClick(movie.id)}>
-              Episode {movie.episode}
+            <button className="episode-btn" key={movie.id} onClick={() => onFilmClick(movie.id)}>
+              EPISODE {movie.episode}
             </button>
           );
         })}

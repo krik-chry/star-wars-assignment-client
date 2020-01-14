@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Characters.css';
 
 class Characters extends Component {
   state = { charactersOrder: 'desc' };
@@ -8,11 +9,28 @@ class Characters extends Component {
   };
   render() {
     const movieCharacters = this.props.movieCharacters.characters;
+    const loading = this.props.movieCharacters.loading;
     const filmTitle = this.props.movieCharacters.filmTitle;
-    if (this.state.charactersOrder === 'desc') {
+    if (loading) {
       return (
         <div>
-          <p>{filmTitle}</p>
+          <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      );
+    } else if (this.state.charactersOrder === 'desc') {
+      return (
+        <div>
+          <h2>{filmTitle}</h2>
+
           {movieCharacters ? (
             <div>
               <button onClick={() => this.onSort('asc')}>
@@ -21,19 +39,25 @@ class Characters extends Component {
                   ⬆️
                 </span>{' '}
               </button>
-              {movieCharacters
-                .sort(function(a, b) {
-                  return b.height - a.height;
-                })
-                .map(character => {
-                  return (
-                    <div>
-                      <p>
-                        {character.name} {character.height} cm
-                      </p>
-                    </div>
-                  );
-                })}
+
+              <div id="characters-table">
+                <div id="table-headers">
+                  <p>Name</p>
+                  <p>Height(cm)</p>
+                </div>
+                {movieCharacters
+                  .sort(function(a, b) {
+                    return b.height - a.height;
+                  })
+                  .map(character => {
+                    return (
+                      <div className="character-row">
+                        <p>{character.name}</p>
+                        <p>{character.height}</p>
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
           ) : (
             <p>Search by film title term or choose a film.</p>
@@ -43,7 +67,8 @@ class Characters extends Component {
     } else {
       return (
         <div>
-          <p>{filmTitle}</p>
+          <h2>{filmTitle}</h2>
+
           {movieCharacters ? (
             <div>
               <button onClick={() => this.onSort('desc')}>
@@ -53,19 +78,24 @@ class Characters extends Component {
                 </span>{' '}
               </button>
 
-              {movieCharacters
-                .sort(function(a, b) {
-                  return a.height - b.height;
-                })
-                .map(character => {
-                  return (
-                    <div>
-                      <p>
-                        {character.name} {character.height} cm
-                      </p>
-                    </div>
-                  );
-                })}
+              <div id="characters-table">
+                <div id="table-headers">
+                  <p>Name</p>
+                  <p>Height(cm)</p>
+                </div>
+                {movieCharacters
+                  .sort(function(a, b) {
+                    return a.height - b.height;
+                  })
+                  .map(character => {
+                    return (
+                      <div className="character-row">
+                        <p>{character.name}</p>
+                        <p>{character.height}</p>
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
           ) : (
             <p>Search by film title term or choose a film.</p>
