@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Characters.css';
-import image from '../images/sort-descending.png';
+import sortDesc from '../images/sort-desc.png';
+import sortAsc from '../images/sort-asc.png';
 
 class Characters extends Component {
   state = { charactersOrder: 'desc' };
@@ -47,22 +48,14 @@ class Characters extends Component {
           )}
           {characters && (
             <div>
-              <button onClick={() => this.onSort('asc')}>
-                Height ascending{' '}
-                <span role="img" aria-label="down">
-                  ⬆️
-                </span>{' '}
-              </button>
-              <button onClick={() => this.onSort('desc')}>
-                Height descending{' '}
-                <span role="img" aria-label="down">
-                  ⬇️
-                </span>{' '}
-              </button>
               <div id="characters-table">
                 <div id="table-headers">
                   <p id="name-header">Name</p>
-                  <p id="height-header">Height (cm)</p>
+                  <p id="height-header">
+                    Height (cm){'  '}
+                    <img src={sortAsc} className="sort-img" onClick={() => this.onSort('asc')} />
+                    <img src={sortDesc} className="sort-img" onClick={() => this.onSort('desc')} />
+                  </p>
                 </div>
                 {characters.map(character => {
                   return (

@@ -6,11 +6,12 @@ h2 {
   padding: 5px;
   margin: 10px auto;
   width: 60%;
-  background-color: gray;
+  background-color: light gray;
   border: black;
   border-radius: 10px;
   font-size: 25px;
 }
+
 #characters-table {
   border: 5px solid black;
   margin: 0 auto;
@@ -19,9 +20,18 @@ h2 {
   background-color: lightgray;
   color: black;
 }
+
+.sort-img {
+  width: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 #table-headers {
+  padding: 3px;
   display: flex;
   border-bottom: 3px solid black;
+  font-size: 23px;
 }
 
 #name-header,
