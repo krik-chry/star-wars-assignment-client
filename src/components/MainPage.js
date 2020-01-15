@@ -29,10 +29,16 @@ class MainPage extends Component {
           })}
         </div>
         {!movieCharacters.loading && (
-          <form autocomplete="off" onSubmit={onSubmit}>
+          <form autoComplete="off" onSubmit={onSubmit}>
             <label>
               Search:
-              <input placeholder='Search by film title term or choose a film.' type="text" name="searchTerm" value={searchTerm} onChange={onChange} />
+              <input
+                placeholder="Search by film title term or choose a film."
+                type="text"
+                name="searchTerm"
+                value={searchTerm}
+                onChange={onChange}
+              />
             </label>
           </form>
         )}

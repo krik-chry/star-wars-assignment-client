@@ -8,8 +8,20 @@ class Characters extends Component {
   onSort = order => {
     this.setState({ charactersOrder: order });
   };
+
   render() {
-    const { characters, loading, filmTitle, release_date } = this.props.movieCharacters;
+    const { loading, filmTitle, release_date, characters } = this.props.movieCharacters;
+
+    if (characters && this.state.charactersOrder === 'desc') {
+      characters.sort(function(a, b) {
+        return b.height - a.height;
+      });
+    } else if (characters) {
+      characters.sort(function(a, b) {
+        return a.height - b.height;
+      });
+    }
+
     if (loading) {
       return (
         <div>
@@ -25,7 +37,7 @@ class Characters extends Component {
           </div>
         </div>
       );
-    } else if (this.state.charactersOrder === 'desc') {
+    } else {
       return (
         <div>
           {filmTitle && (
@@ -41,64 +53,25 @@ class Characters extends Component {
                   ⬆️
                 </span>{' '}
               </button>
-
-              <div id="characters-table">
-                <div id="table-headers">
-                  <p id="name-header">Name</p>
-                  <p id="height-header">Height (cm)</p>
-                </div>
-                {characters
-                  .sort(function(a, b) {
-                    return b.height - a.height;
-                  })
-                  .map(character => {
-                    return (
-                      <div key={character.name} className="character-row">
-                        <p className="character-name">{character.name}</p>
-                        <p className="character-height">{character.height}</p>
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
-          )}
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          {filmTitle && (
-            <h2 id="film-title">
-              {filmTitle.toUpperCase()}, {release_date}
-            </h2>
-          )}
-
-          {characters && (
-            <div>
               <button onClick={() => this.onSort('desc')}>
                 Height descending{' '}
                 <span role="img" aria-label="down">
                   ⬇️
                 </span>{' '}
               </button>
-
               <div id="characters-table">
                 <div id="table-headers">
                   <p id="name-header">Name</p>
                   <p id="height-header">Height (cm)</p>
                 </div>
-                {characters
-                  .sort(function(a, b) {
-                    return a.height - b.height;
-                  })
-                  .map(character => {
-                    return (
-                      <div key={character.name} className="character-row">
-                        <p className="character-name">{character.name}</p>
-                        <p className="character-height">{character.height}</p>
-                      </div>
-                    );
-                  })}
+                {characters.map(character => {
+                  return (
+                    <div key={character.name} className="character-row">
+                      <p className="character-name">{character.name}</p>
+                      <p className="character-height">{character.height}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
