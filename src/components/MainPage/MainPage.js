@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './MainPage.css';
-import image from '../images/sw-height-img.jpg';
+import image from '../../images/sw-height-img.jpg';
 
 class MainPage extends Component {
   render() {

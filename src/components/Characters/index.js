@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Characters.css';
-import sortDesc from '../images/sort-desc.png';
-import sortAsc from '../images/sort-asc.png';
+import sortDesc from '../../images/sort-desc.png';
+import sortAsc from '../../images/sort-asc.png';
 
 class Characters extends Component {
   state = { charactersOrder: 'desc' };

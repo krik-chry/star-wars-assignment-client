@@ -6,7 +6,7 @@ h2 {
   padding: 5px;
   margin: 10px auto;
   width: 60%;
-  background-color: light gray;
+  background-color: lightgray;
   border: black;
   border-radius: 10px;
   font-size: 25px;
@@ -14,8 +14,9 @@ h2 {
 
 #characters-table {
   border: 5px solid black;
+  border-radius: 30px;
   margin: 0 auto;
-  width: 40%;
+  width: 30%;
   margin-top: 1%;
   background-color: lightgray;
   color: black;

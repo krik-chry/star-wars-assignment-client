@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getMovies } from '../actions/allMovies';
-import { getCharacters, clearMessage } from '../actions/movieCharacters';
+import { getMovies } from '../../actions/allMovies';
+import { getCharacters, clearMessage } from '../../actions/movieCharacters';
 import MainPage from './MainPage';
-import Characters from './Characters';
+import Characters from '../Characters';
 
 class MainPageContainer extends Component {
   state = { searchTerm: '' };
