@@ -1,4 +1,4 @@
-# STAR WARS Height-o-Meter Backend
+# STAR WARS Height-o-Meter Frontend
 
 ### This is the frontend for STAR WARS characters height comparison website.
 
