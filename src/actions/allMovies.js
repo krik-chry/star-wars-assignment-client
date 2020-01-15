@@ -14,7 +14,6 @@ function allMovies(payload) {
 export const getMovies = () => dispatch => {
   request(`${baseUrl}/allFilms`)
     .then(response => {
-      console.log(response);
       const action = allMovies(response.body);
 
       dispatch(action);
