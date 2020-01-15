@@ -26,16 +26,7 @@ class Characters extends Component {
     if (loading) {
       return (
         <div>
-          <div className="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <div class="lds-hourglass"></div>
         </div>
       );
     } else {
