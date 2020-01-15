@@ -2,17 +2,37 @@ h2 {
   color: black;
   -webkit-text-stroke: 1px yellow;
 }
-
+#film-title {
+  padding: 5px;
+  margin: 10px auto;
+  width: 60%;
+  background-color: gray;
+  border: black;
+  border-radius: 10px;
+  font-size: 25px;
+}
 #characters-table {
   border: 5px solid black;
   margin: 0 auto;
   width: 40%;
   margin-top: 1%;
+  background-color: lightgray;
+  color: black;
+}
+#table-headers {
+  display: flex;
+  border-bottom: 3px solid black;
 }
 
+#name-header,
+#height-header,
+.character-name,
+.character-height {
+  width: 50%;
+}
 .character-row {
   display: flex;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 /* Loading animation */

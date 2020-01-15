@@ -41,6 +41,7 @@ class MainPageContainer extends Component {
           searchTerm={this.state.searchTerm}
           onFilmClick={this.onFilmClick}
           message={this.props.messages}
+          movieCharacters={this.props.movieCharacters}
         />
         <Characters movieCharacters={this.props.movieCharacters} />
       </>

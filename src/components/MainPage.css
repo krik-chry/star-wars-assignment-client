@@ -1,5 +1,15 @@
+#header {
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  color: black;
+  -webkit-text-stroke: 2px yellow;
+}
+
+#film-buttons {
+  height: 60px;
+}
+
 .episode-btn {
-  margin: 20px 40px;
+  margin: 10px 20px;
   padding: 5px 10px;
   background-color: gray;
   border: black;
@@ -10,9 +20,27 @@
   color: black;
   -webkit-text-stroke: 1px yellow;
 }
+
 .episode-btn:hover {
   cursor: pointer;
 }
+
 .episode-btn:focus {
   background-color: rgb(77, 1, 1);
+}
+
+form {
+  margin: 10px;
+}
+
+input {
+  padding: 5px;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  margin-left: 20px;
+  width: 25%;
+  height: 35px;
+  font-size: 20px;
+  font-style: italic;
+  outline: none;
 }
