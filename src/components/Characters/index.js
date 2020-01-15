@@ -44,8 +44,18 @@ class Characters extends Component {
                   <p id="name-header">Name</p>
                   <p id="height-header">
                     Height (cm){'  '}
-                    <img src={sortAsc} className="sort-img" onClick={() => this.onSort('asc')} />
-                    <img src={sortDesc} className="sort-img" onClick={() => this.onSort('desc')} />
+                    <img
+                      src={sortAsc}
+                      alt="asc-icon"
+                      className="sort-img"
+                      onClick={() => this.onSort('asc')}
+                    />
+                    <img
+                      src={sortDesc}
+                      alt="desc-icon"
+                      className="sort-img"
+                      onClick={() => this.onSort('desc')}
+                    />
                   </p>
                 </div>
                 {characters.map(character => {
