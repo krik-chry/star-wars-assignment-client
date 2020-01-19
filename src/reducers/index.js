@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
 import allMovies from './allMovies';
-import movieCharacters from './movieCharacters';
+import movieData from './movieData';
 import messages from './messages';
 
 export default combineReducers({
   allMovies,
-  movieCharacters,
+  movieData,
   messages
 });

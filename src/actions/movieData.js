@@ -1,14 +1,14 @@
 import request from 'superagent';
 
-export const MOVIE_CHARACTERS = 'MOVIE_CHARACTERS';
+export const MOVIE_DATA = 'MOVIE_DATA';
 export const CLEAR_CHARACTERS = 'CLEAR_CHARACTERS';
 export const MESSAGE = 'MESSAGE';
 
 const baseUrl = 'http://localhost:4000';
 
-function movieCharacters(payload) {
+function movieData(payload) {
   return {
-    type: MOVIE_CHARACTERS,
+    type: MOVIE_DATA,
     payload
   };
 }
@@ -34,16 +34,18 @@ export const clearMessage = () => dispatch => {
 };
 
 export const getCharacters = (id, order) => dispatch => {
-  const action = clearCharacters({ loading: true });
-  dispatch(action);
+  const loadingAction = clearCharacters({ loading: true });
+  dispatch(loadingAction);
+
   request(`${baseUrl}/search/${id}/${order}`)
     .then(response => {
-      const action = movieCharacters(response.body);
+      const action = movieData(response.body);
       dispatch(action);
     })
     .catch(error => {
-      console.error(error);
-      const action = getServerMessage(error.response.body.message);
-      dispatch(action);
+      const loadingAction = clearCharacters({ loading: false });
+      dispatch(loadingAction);
+      const messageAction = getServerMessage(error.response.body.message);
+      dispatch(messageAction);
     });
 };

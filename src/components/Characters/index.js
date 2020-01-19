@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Characters.css';
 import sortDesc from '../../images/sort-desc.png';
 import sortAsc from '../../images/sort-asc.png';
+import './Characters.css';
 
 class Characters extends Component {
   state = { charactersOrder: 'desc' };
@@ -11,7 +11,7 @@ class Characters extends Component {
   };
 
   render() {
-    const { loading, filmTitle, release_date, characters } = this.props.movieCharacters;
+    const { loading, filmTitle, release_date, characters } = this.props.movieData;
 
     if (characters && this.state.charactersOrder === 'desc') {
       characters.sort(function(a, b) {
@@ -26,7 +26,7 @@ class Characters extends Component {
     if (loading) {
       return (
         <div>
-          <div class="lds-hourglass"></div>
+          <div className="lds-hourglass"></div>
         </div>
       );
     } else {

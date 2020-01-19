@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMovies } from '../../actions/allMovies';
-import { getCharacters, clearMessage } from '../../actions/movieCharacters';
+import { getCharacters, clearMessage } from '../../actions/movieData';
 import MainPage from './MainPage';
 import Characters from '../Characters';
 
@@ -20,12 +20,14 @@ class MainPageContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.props.clearMessage();
-    this.props.getCharacters(this.state.searchTerm);
+    if (this.state.searchTerm !== '') {
+      this.props.clearMessage();
+      this.props.getCharacters(this.state.searchTerm);
 
-    this.setState({
-      searchTerm: ''
-    });
+      this.setState({
+        searchTerm: ''
+      });
+    }
   };
   onFilmClick = id => {
     this.props.clearMessage();
@@ -41,16 +43,16 @@ class MainPageContainer extends Component {
           searchTerm={this.state.searchTerm}
           onFilmClick={this.onFilmClick}
           message={this.props.messages}
-          movieCharacters={this.props.movieCharacters}
+          movieData={this.props.movieData}
         />
-        <Characters movieCharacters={this.props.movieCharacters} />
+        <Characters movieData={this.props.movieData} />
       </>
     );
   }
 }
 const mapStateToProps = state => ({
   allMovies: state.allMovies,
-  movieCharacters: state.movieCharacters,
+  movieData: state.movieData,
   messages: state.messages
 });
 

@@ -4,15 +4,7 @@ import image from '../../images/sw-height-img.jpg';
 
 class MainPage extends Component {
   render() {
-    const {
-      allMovies,
-      searchTerm,
-      message,
-      onSubmit,
-      onChange,
-      onFilmClick,
-      movieCharacters
-    } = this.props;
+    const { allMovies, searchTerm, message, onSubmit, onChange, onFilmClick } = this.props;
 
     return (
       <div>
@@ -28,21 +20,16 @@ class MainPage extends Component {
             );
           })}
         </div>
-        {!movieCharacters.loading && (
-          <form autoComplete="off" onSubmit={onSubmit}>
-            <label>
-              Search:
-              <input
-                placeholder="Search by film title term or choose a film."
-                type="text"
-                name="searchTerm"
-                value={searchTerm}
-                onChange={onChange}
-              />
-            </label>
-          </form>
-        )}
-        {message && <p>{message}</p>}
+        <form autoComplete="off" onSubmit={onSubmit}>
+          <input
+            placeholder="Search by film title term or choose an episode."
+            type="text"
+            name="searchTerm"
+            value={searchTerm}
+            onChange={onChange}
+          />
+        </form>
+        {message && <h2>{message}</h2>}
       </div>
     );
   }
