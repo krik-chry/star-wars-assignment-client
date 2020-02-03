@@ -2,7 +2,7 @@ import request from 'superagent';
 
 export const ALL_MOVIES = 'ALL_MOVIES';
 
-const baseUrl = 'http://localhost:4000';
+const baseUrl = 'https://star-wars-heightometer-server.herokuapp.com/';
 
 function allMovies(payload) {
   return {
