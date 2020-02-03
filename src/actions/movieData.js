@@ -4,7 +4,7 @@ export const MOVIE_DATA = 'MOVIE_DATA';
 export const CLEAR_CHARACTERS = 'CLEAR_CHARACTERS';
 export const MESSAGE = 'MESSAGE';
 
-const baseUrl = 'https://star-wars-heightometer-server.herokuapp.com/';
+const baseUrl = 'https://star-wars-heightometer-server.herokuapp.com';
 
 function movieData(payload) {
   return {
